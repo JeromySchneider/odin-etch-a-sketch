@@ -53,11 +53,11 @@ function getRandomInt(min, max) {
 
 function toggleButtonStyle(button, toggle) {
   if (toggle) {
-    button.style.color = "black";
+    button.style.color = "#00abe1";
     button.style.backgroundColor = "white";
   } else {
     button.style.color = "white";
-    button.style.backgroundColor = "black";
+    button.style.backgroundColor = "#00abe1";
   }
 }
 
@@ -93,10 +93,12 @@ eraser.addEventListener("mousedown", () => {
 });
 
 const slider = document.getElementById("slider");
+const dimension = document.getElementById("dimension");
 let sliderInput = slider.value;
 
 slider.addEventListener("input", () => {
   sliderInput = slider.value;
+  dimension.textContent = `Grid size: ${sliderInput} x ${sliderInput}`;
   resetGrid();
 });
 
