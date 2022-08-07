@@ -7,6 +7,9 @@ function createGrid(num) {
     canvas.appendChild(row);
     for (let j = 0; j < num; j++) {
       let square = document.createElement("div");
+      if (!linesToggle) {
+        square.classList.add("square");
+      }
       row.appendChild(square);
     }
   }
@@ -90,6 +93,22 @@ eraser.addEventListener("mousedown", () => {
   } else {
     eraserToggle = true;
   }
+});
+
+const lines = document.getElementById("lines");
+let linesToggle = false;
+
+lines.addEventListener("mousedown", () => {
+  let squarea = document.querySelectorAll("div.row > div");
+  toggleButtonStyle(lines, linesToggle);
+  if (linesToggle) {
+    linesToggle = false;
+  } else {
+    linesToggle = true;
+  }
+  squarea.forEach(element => {
+    element.classList.toggle("square");
+  });
 });
 
 const slider = document.getElementById("slider");
