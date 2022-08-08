@@ -9,6 +9,7 @@
 
 body {
   background-color: #00458b;
+  user-select: none;
 }
 
 h1 {
@@ -18,7 +19,6 @@ h1 {
 }
 
 button {
-  /* width: 150px; */
   background-color: white;
   padding: 10px;
   color: #00ABE1;
