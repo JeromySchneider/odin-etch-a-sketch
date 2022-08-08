@@ -15,10 +15,26 @@ function createGrid(num) {
   }
 
   const grid = document.querySelectorAll(".row > div");
+  let mouseState;
+
+  grid.forEach(square => {
+    square.addEventListener("mousedown", (e) => {
+      mouseState = e.type;
+      e.target.style.backgroundColor = getColor();
+    });
+  });
+
+  grid.forEach(square => {
+    square.addEventListener("mouseup", (e) => {
+        mouseState = e.type;
+    });
+  });
 
   grid.forEach(square => {
     square.addEventListener("mouseover", (e) => {
-      e.target.style.backgroundColor = getColor();
+      if (mouseState === "mousedown") {
+        e.target.style.backgroundColor = getColor();
+      }
     });
   });
 }
@@ -99,14 +115,14 @@ const lines = document.getElementById("lines");
 let linesToggle = false;
 
 lines.addEventListener("mousedown", () => {
-  let squarea = document.querySelectorAll("div.row > div");
+  let square = document.querySelectorAll("div.row > div");
   toggleButtonStyle(lines, linesToggle);
   if (linesToggle) {
     linesToggle = false;
   } else {
     linesToggle = true;
   }
-  squarea.forEach(element => {
+  square.forEach(element => {
     element.classList.toggle("square");
   });
 });
