@@ -32,7 +32,7 @@ function createGrid(num) {
 
   grid.forEach(square => {
     square.addEventListener("mouseover", (e) => {
-      if (mouseState === "mousedown") {
+      if (mouseState === "mousedown" && e.buttons) {
         e.target.style.backgroundColor = getColor();
       }
     });
